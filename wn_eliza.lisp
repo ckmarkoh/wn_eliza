@@ -1,4 +1,5 @@
-(load "runpython")
+(load "run_python")
+(load "all_rules")
 
 (defconstant fail nil 
 	"Indicates pat_match failure"
@@ -185,43 +186,6 @@
 
 (defun rule_pattern (rule) (first rule))
 (defun rule_responses (rule) (rest rule))
-
-(defparameter *wn_rules* ;TODO wordnet rules.
-	'(
-		(((?* ?x) what is (?* ?q) ?)
-			( ?q is ?a)
-			( The definition of ?q is ?a)
-			( The meaning of ?q is ?a)
-			)
-		(((?* ?x) look up the word (?* ?q) in wordnet ?a)
-			( The definition of ?q in wordnet is ?a)
-			( The meaning of ?q in wordnet is ?a)
-			)
-	)
-)
-
-(defparameter *eliza_rules* 
-	'(
-		(((?* ?x) hello (?* ?y))
-			(How do you do. Please state your problem.))
-		(((?* ?x) I want (?* ?y))
-			(What would it mean if you got ?y)
-			(Why do you want ?y) (Suppose you got ?y soon))
-		(((?* ?x) if (?* ?y))
-			(Do you really think its likely that ?y) (Do you wish that ?y)
-			(What do you think about ?y) (Really-- if ?y))	
-		(((?* ?x) no (?* ?y))
-			(Why not?) (You are being a bit negative)
-			(Are you saying "NO" just to be negative?))
-		(((?* ?x) I was (*? ?y))
-			(Were you really?) (Perhaps I already knew you were ?y)
-			(Why do you tell me you were ?y now?))
-		(((?* ?x) I feel (*? ?y))
-			(Do you often feel ?y ?))
-		(((?* ?x) I felt (*? ?y))
-			(What other feelings do you have?))
-	)
-)
 
 ;;; ==============================
 ;	? > (eliza)

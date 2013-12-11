@@ -4,4 +4,4 @@ delimiter="?-?"
 result="not in wordnet"
 if len(wn.synsets(argv[1])) >0:
 	result=wn.synsets(argv[1])[0].definition
-print " "+delimiter+" "+result+" "+delimiter+" "
+print " %s %s %s "%(delimiter,result,delimiter)
