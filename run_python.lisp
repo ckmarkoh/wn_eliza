@@ -13,7 +13,7 @@
 (defun runpy_wordnet(str_word)
 	"Lisp-Python interface for wordnet"
 		(with-output-to-string (asdf::*verbose-out*) 
-			(asdf:run-shell-command 
+			(uiop:run-program
 				(concatenate 'string "python wordnetpy.py " str_word
 				)
 			)
